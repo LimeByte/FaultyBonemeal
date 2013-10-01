@@ -1,0 +1,8 @@
+name: FaultyBonemeal
+author: LimeByte
+version: 1.1.0
+description: Fix that faulty Bonemeal!
+
+main: me.limebyte.faultybonemeal.FaultyBonemeal
+load: POSTWORLD
+database: false
