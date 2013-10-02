@@ -15,11 +15,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.google.common.collect.ImmutableMap;
 
-public class FaultyBonemeal extends JavaPlugin implements Listener {
+public class FaultyBoneMeal extends JavaPlugin implements Listener {
 
-    private static final ItemStack BONEMEAL = new ItemStack(Material.INK_SACK, 1, (short) 15);
+    private static final ItemStack BONE_MEAL = new ItemStack(Material.INK_SACK, 1, (short) 15);
     private static final Map<Material, Byte> BONE_MEALABLE = ImmutableMap.<Material, Byte> builder().put(Material.SAPLING, Byte.MAX_VALUE).put(Material.CROPS, (byte) 6).put(Material.CARROT, (byte) 6)
-            .put(Material.POTATO, (byte) 6).put(Material.COCOA, (byte) 7).put(Material.MELON_STEM, (byte) 6).put(Material.PUMPKIN_STEM, (byte) 6).build();
+            .put(Material.POTATO, (byte) 6).put(Material.COCOA, (byte) 7).put(Material.MELON_STEM, (byte) 6).put(Material.PUMPKIN_STEM, (byte) 6).put(Material.BROWN_MUSHROOM, Byte.MAX_VALUE)
+            .put(Material.RED_MUSHROOM, Byte.MAX_VALUE).put(Material.GRASS, Byte.MAX_VALUE).build();
 
     private Logger log;
 
@@ -38,7 +39,7 @@ public class FaultyBonemeal extends JavaPlugin implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onBlockDispense(BlockDispenseEvent event) {
-        if (!event.getItem().isSimilar(BONEMEAL)) return;
+        if (!event.getItem().isSimilar(BONE_MEAL)) return;
 
         Block block = event.getBlock();
         if (block.getType() != Material.DISPENSER) return;
